@@ -41,7 +41,6 @@ protobuf==7.35.1
 pycparser==3.0
 pydantic==2.13.4
 pydantic_core==2.46.4
-pygame==2.6.1
 pypiwin32==223
 python-dotenv==1.2.2
 pyttsx3==2.99
