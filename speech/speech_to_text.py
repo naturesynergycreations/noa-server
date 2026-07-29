@@ -18,5 +18,5 @@ def listen():
         )
 
     text = transcription.text
-    print(text)
+    print(f"Whisper: {text}")
     return text
