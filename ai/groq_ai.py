@@ -40,9 +40,9 @@ def ask_ai(question):
 
     return reply
 
-def summarize_search(search_text):
+def summarize_search(question, search_text):
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="llama-3.1-8b-instant",
         messages=[
             {
                 "role": "system",
