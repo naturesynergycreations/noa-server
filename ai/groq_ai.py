@@ -47,16 +47,19 @@ def summarize_search(question, search_text):
             {
                 "role": "system",
                 "content": (
-                    "You are a friendly AI assistant. "
-                    "Summarize the given search results in simple English. "
-                    "Give only the important points. "
+                    "Your name is Noa. "
+                    "You are a friendly AI voice assistant. "
+                    "Answer the user's question using the provided web search results. "
+                    "Use simple English. "
                     "Keep the answer under 100 words. "
-                    "Do not include advertisements, links, or unnecessary details."
+                    "Do not mention Tavily or say 'according to the search results'. "
+                    "Do not include links or advertisements. "
+                    "If the search results don't contain the answer, politely say you couldn't find enough information."
                 )
             },
             {
                 "role": "user",
-                "content": search_text
+                "content": f"Question: {question}\n\nSearch Results:\n{search_text}"
             }
         ],
         temperature=0.3,
