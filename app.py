@@ -41,9 +41,8 @@ def upload():
         reply = ask_ai(question)
         print("Noa :", reply)
 
-
+        
         # Generate reply.mp3
-        reply = "Testing"
         speak(reply)
 
         return {
