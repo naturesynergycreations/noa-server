@@ -3,7 +3,7 @@ import os
 import wave
 from flask import send_file
 from speech.speech_to_text import listen
-from ai.groq_ai import ask_ai
+from ai.router import ask
 from speech.text_to_speech import speak
 
 app = Flask(__name__)
@@ -38,7 +38,7 @@ def upload():
         print("You :", question)
 
         # AI Response
-        reply = ask_ai(question)
+        reply = ask(question)
         print("Noa :", reply)
 
         
