@@ -12,7 +12,7 @@ def listen():
     with open("uploads/voice.wav", "rb") as audio_file:
         transcription = client.audio.transcriptions.create(
             file=audio_file,
-            model="whisper-large-v3-turbo",
+            model="whisper-large-v3",
             response_format="verbose_json",
             language="en",
         )
