@@ -26,6 +26,6 @@ def ask(question):
         search_result = search_web(question)
 
         if search_result:
-            return summarize_search(search_result)
+            return summarize_search(question, search_result)
 
     return ask_ai(question)
