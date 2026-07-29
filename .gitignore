@@ -1,0 +1,5 @@
+__pycache__/
+.env
+uploads/
+reply.wav
+reply.mp3
