@@ -8,8 +8,8 @@ BAD_WORDS = [
     "18+",
     "18",
     "18 +",
-    "18 + content",
     "18+ content",
+    "18 + content",
     "18+content",
     "kiss",
     "boobs",
@@ -18,24 +18,21 @@ BAD_WORDS = [
     "condom"
 ]
 
-MAX_WORDS = 15
-MAX_CHARACTERS = 100
-
 
 def check_question(question):
+    """
+    Returns:
+        normal
+        restricted
+    """
 
     if not question:
         return "normal"
 
-    q = question.lower()
+    q = question.lower().strip()
 
-    # Check 18+ words
     for word in BAD_WORDS:
         if word in q:
             return "restricted"
-
-    # Check very lengthy question
-    if len(q.split()) > MAX_WORDS:
-        return "long"
 
     return "normal"

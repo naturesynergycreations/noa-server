@@ -5,6 +5,7 @@ from flask import send_file
 from speech.speech_to_text import listen
 from ai.router import ask
 from speech.text_to_speech import speak
+from utils.safety import check_question
 
 app = Flask(__name__)
 
@@ -35,18 +36,26 @@ def upload():
 
         # Speech to Text
         question = listen()
+        status = check_question(question)
+
         print("You :", question)
 
-        # AI Response
-        reply = ask(question)
+        # Safety Check
+        if status == "restricted":
+            reply = (
+                "Sorry. I can't assist with that request. "
+                "Please ask something educational or general."
+            )
+        else:
+            reply = ask(question)
+
         print("Noa :", reply)
 
-        
-        # Generate reply.mp3
+        # Generate reply.wav
         speak(reply)
 
         return {
-            "status": "success",
+            "status": status,
             "question": question,
             "reply": reply
         }
