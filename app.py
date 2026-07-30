@@ -23,14 +23,7 @@ def upload():
     try:
         audio = request.data
 
-        import time
-
-        filename = os.path.join(
-                UPLOAD_FOLDER,
-                f"voice_{int(time.time())}.wav"
-            )
-
-        print("Saving to:", filename)
+        filename = os.path.join(UPLOAD_FOLDER, "voice.wav")
 
         with wave.open(filename, "wb") as wav:
             wav.setnchannels(1)
@@ -41,8 +34,8 @@ def upload():
         print("\n✅ Voice received.")
 
         # Speech to Text
-        question = listen(filename)
-        print("You :", repr(question))
+        question = listen()
+        print("You :", question)
 
         # AI Response
         reply = ask(question)
