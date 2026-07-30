@@ -35,7 +35,7 @@ def upload():
 
         # Speech to Text
         question = listen()
-        print("You :", question)
+        print("You :", repr(question))
 
         # AI Response
         reply = ask(question)
